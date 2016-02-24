@@ -1,0 +1,49 @@
+body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.tab-panels {
+  width: 100%;
+  float: left;
+}
+
+.tab-panels ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  padding: 3px 50px;
+  border-radius: 10px 10px 0 0;
+  border-style: solid;
+  border-color: darkgray;
+  border-width: 1px 0 1px 1px;
+  cursor: pointer;
+}
+
+.tab-panels .tabs li.active {
+  color: white;
+  background-color: dimgray;
+}
+
+.tab-panels ul li:hover {
+	color:fff;
+	background-color: darksalmon;
+}
+
+.tab-panels .panel {
+  display: none;
+  background-color: beige;
+  border-radius: 0 0 10px 10px;
+  padding: 0 15px 15px 15px;
+}
+
+.tab-panels .panel.active {
+  display: block;
+}

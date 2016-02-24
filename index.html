@@ -1,0 +1,95 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery tabbed panel group</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="css/css.css" type="text/css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+</head>
+
+<body>
+  
+  <script> // HOMEWORK
+    $("document").ready(function(){
+      //create event bindings on ALL tab panel li buttons
+      $(".tab-panels .tabs li").on("click", function(){
+        //find and REMOVE the active class for the unordered list item
+        $(".tab-panels .tabs li.active").removeClass("active");
+        //add the "active" class to the clicked element
+        $(this).addClass("active");
+        
+        //find out which panel to show by using the current elements rel attribute
+        //assign the rel of the li to a variable for testing later
+        var panelToShow = $(this).attr("rel");
+        
+        //hide the current panel
+        $(".tab-panels .panel.active").slideUp(300, function(){
+          $(this).removeClass("active");
+          //show new panel
+          $("#"+panelToShow).slideDown(300, function(){
+            $(this).addClass("active");
+          });
+        });
+      }); //end of event attach
+    });
+  
+  </script>
+  
+  <header>
+    <h1>jQuery Tabbed Panel Group</h1>
+  </header>
+  
+  <main>
+    <p>Praesent consectetur finibus lorem, ac vestibulum elit scelerisque sit amet. Quisque elementum ipsum in dui ullamcorper, quis consectetur dui consequat. In non turpis a lorem lobortis eleifend ac ut purus. In id enim aliquet, pharetra mi vitae, posuere mauris. Fusce nec felis a velit fringilla sagittis. In accumsan ligula eu mi euismod, quis fringilla sem finibus. Quisque elit ligula, auctor vel consectetur sed, efficitur sed purus. Maecenas eget justo molestie, mattis libero eget, suscipit sapien. Duis facilisis id augue sit amet faucibus.</p>
+    
+    <div class="tab-panels">
+      
+      <ul class="tabs">
+        <li rel="tab_one" class="active">Tab One</li>
+        <li rel="tab_two">Tab Two</li>
+        <li rel="tab_three">Tab Three</li>      
+      </ul>
+      
+      <div id="tab_one" class="panel active">
+        <h2>Tab One</h2>
+        <p>Cras fermentum sed nunc sit amet mattis. Nulla scelerisque est varius, tristique lectus vitae, accumsan mi. Proin nec porta metus, quis ornare orci. Mauris consectetur risus vel mollis elementum. Vivamus at venenatis tellus. In ut porta diam, at gravida elit. Donec lectus libero, fringilla in nulla eu, mollis semper eros. Cras porta quam vitae nisl rutrum, quis semper diam ultrices.</p>
+        <p>Nullam finibus cursus sapien sed hendrerit. Donec aliquam mollis augue in consequat. Nullam in neque est. Phasellus vulputate mauris et magna laoreet, eu gravida mauris consequat. Pellentesque ac ante rutrum, cursus elit in, tincidunt justo. Etiam ut tortor luctus, egestas enim vitae, fringilla massa. Curabitur accumsan magna vel mauris sollicitudin, a venenatis massa rutrum. Integer gravida pulvinar nisi, in rhoncus risus tempor semper. Integer vehicula ornare nibh, euismod sodales nisl tempor sit amet. Nulla vitae sem quis nisl dictum lacinia.</p>
+        <p>
+          <img src="images/artwork_12.jpg" />
+          <img src="images/artwork_15.jpg" />
+          <img src="images/artwork_17.jpg" />
+          <img src="images/artwork_18.jpg" />
+        </p>
+      </div>
+      
+      <div id="tab_two" class="panel">
+        <h2>Tab Two</h2>
+        <p>Phasellus ullamcorper odio nunc, sed viverra arcu bibendum sed. Ut quam nibh, porttitor ac mollis vel, posuere in eros. Aenean eu tellus erat. Sed pharetra eros dapibus, mattis risus quis, aliquet ipsum. Sed tincidunt ultricies libero eu accumsan.</p>
+        <p>
+          <img src="images/artwork_19.jpg" />
+          <img src="images/artwork_20.jpg" />
+        </p>
+        <p>Quisque sed porta velit. Vestibulum pharetra consectetur ex, condimentum suscipit lectus. Aliquam dignissim ornare sagittis. Phasellus mollis imperdiet quam, sed tempor quam posuere in. Etiam ex magna, dictum ut lobortis sed, porta at eros. Nam pulvinar commodo vestibulum.</p>
+      </div>
+      
+      <div id="tab_three" class="panel">
+        <h2>Tab Three</h2>
+        <p>
+          <img src="images/artwork_21.jpg" />
+          <img src="images/artwork_24.jpg" />
+          <img src="images/artwork_25.jpg" />
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis ultricies massa sit amet faucibus. Ut hendrerit facilisis vulputate. Aliquam et odio et sem porttitor feugiat. Cras tincidunt odio non metus aliquam vestibulum. Praesent vitae erat in enim facilisis aliquam vel sit amet felis. Nulla vel lacus pharetra, interdum massa eget, efficitur lacus. Nam condimentum a tortor id euismod.</p>
+        <p>Cras fermentum sed nunc sit amet mattis. Nulla scelerisque est varius, tristique lectus vitae, accumsan mi. Proin nec porta metus, quis ornare orci. Mauris consectetur risus vel mollis elementum. Vivamus at venenatis tellus. In ut porta diam, at gravida elit. Donec lectus libero, fringilla in nulla eu, mollis semper eros. Cras porta quam vitae nisl rutrum, quis semper diam ultrices. Ut vitae arcu in augue vestibulum aliquet. Aliquam erat volutpat. Sed tempor consequat elit non dignissim. Phasellus ultricies, arcu at eleifend rutrum, lacus urna mollis enim, id consequat dolor diam non urna. Cras vitae ipsum id ante pretium mattis. Quisque nec hendrerit erat, quis eleifend nunc. Sed sodales purus non odio posuere, et porta dui aliquam. Fusce lacinia vel lacus ac efficitur.</p>
+      </div>
+      
+    </div>
+    
+  </main>
+  
+  <footer>
+    <p>&copy; Joan Williams 02.2016</p>
+  </footer>
+</body>
+</html>
